@@ -422,6 +422,7 @@ const WeatherApp = () => {
     Math.abs(a.lat - b.lat) < 0.0001 &&
     Math.abs(a.lon - b.lon) < 0.0001;
 
+  // Build the carousel list with current place first, then saved, then active search.
   const places = (() => {
     const list = [];
     if (currentPlace) {
@@ -437,6 +438,7 @@ const WeatherApp = () => {
     return list;
   })();
 
+  // Persist the currently focused card so we can restore it next session.
   useEffect(() => {
     if (!activePlace || !places.length) return;
     const index = places.findIndex((p) => samePlace(p, activePlace));
@@ -489,6 +491,7 @@ const WeatherApp = () => {
   }, [currentPlace, lastActivePlace]);
 
 
+  // Snap to the closest card after scrolling settles.
   const handleCarouselScroll = () => {
     if (!carouselRef.current) return;
     if (scrollTimerRef.current) {

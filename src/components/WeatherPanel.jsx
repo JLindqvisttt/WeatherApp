@@ -107,6 +107,7 @@ const WeatherPanel = ({
   const cloudPercent = weather.clouds?.all != null ? `${weather.clouds.all}%` : '—';
   const rainMm = weather.rain?.['1h'] ?? weather.rain?.['3h'] ?? null;
   const gust = weather.wind?.gust ?? null;
+  // Adjust timestamps to the location's timezone offset from the API.
   const timezoneOffsetSeconds = weather.timezone ?? 0;
   const localTime = new Date(Date.now() + timezoneOffsetSeconds * 1000)
     .toLocaleTimeString('sv-SE', { hour: '2-digit', minute: '2-digit' });
