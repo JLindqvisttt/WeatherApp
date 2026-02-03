@@ -33,3 +33,11 @@ npm run dev
 
 ## Notes
 - Saved places and the last active place are stored in `localStorage`.
+
+## Screenshots
+Add your screenshots to the repo (for example in a `screenshots/` folder) and link them here:
+
+```markdown
+![Home](screenshots/home.png)
+![Forecast](screenshots/forecast.png)
+```
